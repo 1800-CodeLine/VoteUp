@@ -44,8 +44,8 @@ def base_function(request):
 
 # Create your views here.
 def homepage(request):
-    template_name = "VotingMachine/homepage.html"
     load_data = on_page_load(request)
+    template_name = "VotingMachine/homepage.html" if load_data["logged_in"] else "VotingMachine/landing_page.html"
     context = {
         "title": "Home"
     }
